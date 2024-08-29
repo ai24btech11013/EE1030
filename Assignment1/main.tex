@@ -1,0 +1,201 @@
+%iffalse
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} 
+\usepackage{listings}
+\usepackage{gvv}                                        
+%\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                       
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}                                           
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+% Marks the beginning of the document
+\begin{document}
+\bibliographystyle{IEEEtran}
+\vspace{3cm}
+
+\title{Definite Integrals and Applications of Integrals}
+\author{AI24BTECH11013-Geetha charani}
+\maketitle
+\newpage
+\bigskip
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\section{Comprehension Based Questions}
+\textbf{PASSAGE-1}
+
+Let the definite integral be defined by the formula
+$\int_a^b f(x) \, dx = \frac{b-a}{2} ( f(a) + f(b) ).$
+For a more accurate result for \( c \in (a, b) \), we can use
+$\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx = F(c)$
+so that for \( c = \frac{a+b}{2} \), we get
+$\int_a^b f(x) \, dx = \frac{b-a}{4}( f(a) + f(b) + 2f(c) )$.
+\begin{enumerate}
+\item $\int_0^{\frac{\pi}{2}} \sin x \, dx =$
+\hfill{\textbf{(2006- 5M -2)}}
+\begin{enumerate}[label=(\alph*)]
+    \item $ \frac{\pi}{8} ( 1 + \sqrt{2} ) $
+    \item $\frac{\pi}{4} ( 1 + \sqrt{2} ) $
+    \item $ \frac{\pi}{8\sqrt{2}}$
+    \item  $\frac{\pi}{4\sqrt{2}}$ 
+\end{enumerate}
+\item $\lim_{x \to a} \frac{\int_a^x f(t)dt - (\frac{x-a}{2})(f(x) + f(a))}{(x - a)^3} = 0 $, then  f(x)  is 
+ of maximum degree 
+ \hfill{\textbf{(2006- 5M -2)}}
+ \begin{enumerate}[label=(\alph*)]
+    \item  4 
+    \item  3 
+    \item  2 
+    \item  1
+  \end{enumerate}
+ \item If $ f''(x) < 0 \ \forall \ x \in (a, b) $ and  c  is a point such that $a < c < b $, and $(c, f(c))$ is the point lying on the curve for which $F(c) $ is maximum, then $f'(c) $ is equal to
+ \hfill{\textbf{(2006- 5M -2)}}
+ \begin{enumerate}[label=(\alph*)]
+    \item  $\frac{f(b) - f(a)}{b - a} $
+    \item  $ \frac{2(f(b) - f(a))}{b - a} $
+    \item  $ \frac{2f(b) - f(a)}{2b - a} $
+    \item  0
+\end{enumerate}
+\textbf{PASSAGE - 2}
+ 
+ Consider the functions defined implicitly by the equation 
+$y^3 - 3y + x = 0$
+on various intervals in the real line. If $ x \in (-\infty, -2) \cup (2, \infty) $, the equation implicitly defines a unique real-valued differentiable function $ y = f(x) $. If $x \in (-2, 2)$, the equation implicitly defines a unique real valued differentiable function $y = g(x)$ satisfying $ g(0) = 0$.
+
+\item If $f(-10\sqrt{2})=2\sqrt{2}$, then $f"(-10\sqrt{2})$=
+\hfill{\textbf{2008}}
+\begin{enumerate}
+    \item $\frac{4\sqrt{2}}{7^3 3^2}$
+    \item $\frac{-4\sqrt{2}}{7^3 3^2}$ 
+     \item $\frac{4\sqrt{2}}{7^3 3}$  
+     \item $\frac{-4\sqrt{2}}{7^3 3}$ 
+\end{enumerate}
+\item The area of the region bounded by the curve $y=f(x)$, the x-axis, and the lines x = a and x = b, where $-\infty <a<b<-2$, is
+\hfill{\textbf{2008}}
+\begin{enumerate}
+    \item $\int_a^b\frac{x}{3((f(x))^2-1)}dx$ +$bf(b)$-$af(a)$ 
+    \item -$\int_a^b\frac{x}{3((f(x))^2-1)}dx$ +$bf(b)$-$af(a)$
+    \item $\int_a^b\frac{x}{3((f(x))^2-1)}dx$ -$bf(b)$+$af(a)$ 
+    \item -$\int_a^b\frac{x}{3((f(x))^2-1)}dx$ -$bf(b)$+$af(a)$ 
+\end{enumerate}
+\item $\int_ {-1}^{1} g'(x)dx$ =
+\hfill{\textbf{2008}}
+\begin{enumerate}
+    \item $2g(-1)$
+    \item 0
+    \item $-2g(1)$
+    \item $2g(1)$ 
+\end{enumerate}
+\textbf{PASSAGE-3}
+Consider the function f: $(-\infty,\infty)\rightarrow(-\infty,\infty)$ defined by $f(x)=\frac{x^2 -ax+1}{x^2+ax+1}$, $ 0<a<2.$
+
+ \item Which of the following is true?
+\hfill{\textbf{2008}}
+\begin{enumerate}
+    \item $(2+a)^2 f"(1)+(2-a)^2 f"(1)$ 
+    \item $(2+a)^2 f"(1)-(2-a)^2 f"(1)$
+    \item $f'(1)f'(-1)=(2-a)^2$ 
+     \item $f'(1)f'(-1)=-(2+a)^2$ 
+\end{enumerate}
+\item Which of the following is true?
+\hfill{\textbf{2008}}
+\begin{enumerate}
+    \item $f(x)$ is decreasing on $(-1,1)$ and has a local minimum at x=1
+    \item $f(x)$ is increasing on $(-1,1)$ and has a local minimum at x=1
+    \item $f(x)$  is increasing on $(-1,1)$ but has neither a local maximum nor a local minimum at x=1
+    \item $f(x)$  is decreasing on $(-1,1)$ but has neither a local maximum nor a local minimum at x=1
+\end{enumerate}
+\item Let $g(x)=\int_{0}^{e^x}\frac{f'(t)}{1+t^2}dt$. Which of the following is true?
+\begin{enumerate}
+    \item $g'(x)$ is positive on $(-\infty,0)$ and negative on $(0,\infty)$
+     \item $g'(x)$ is negative on $(-\infty,0)$ and positive on $(0,\infty)$
+     \item $g'(x)$ changes sign on both $(-\infty,0)$ and $(0,\infty)$
+     \item $g'(x)$ does not change sign on $(-\infty,\infty)$  
+\end{enumerate}
+\textbf{PASSAGE-4}
+
+Consider the polynomial $f(x) = 1+2x+3x^2+4x^3$. Let s be the sum of all distinct real roots of $f(x)$ and let $t=|s|$.
+\hfill{\textbf{2010}}
+
+\item The real numbers lies in the interval
+\begin{enumerate}
+    \item $(-\frac{1}{4},0)$
+    \item $(-11,-\frac{3}{4})$
+    \item $(-\frac{3}{4},-\frac{1}{2})$
+     \item $(0,\frac{1}{4})$
+\end{enumerate}
+\item The area bounded by the curve $y=f(x)$ and the lines $x=0$, $y=0$ 
+ and $x=t$, lies in the interval
+\begin{enumerate}
+\item $(\frac{3}{4},3)$ 
+\item $(\frac{21}{64},\frac{11}{16})$ 
+\item $(9,10)$  
+\item $(0,\frac{21}{64})$ 
+\end{enumerate}
+\item The function f'(x) is
+\begin{enumerate}
+    \item increasing in $(-t,-\frac{1}{4})$ and decreasing in $(-\frac{1}{4},t)$ 
+    \item decreasing in $(-t,-\frac{1}{4})$ and increasing in $(-\frac{1}{4},t)$ 
+    \item increasing in $(-t,t)$ 
+    \item decreasing in $(-t,t)$
+\end{enumerate}
+\textbf{PASSAGE-5}
+
+Given that for each $a \in (0, 1)$,
+
+$\lim_{h \to 0^+} \int_h^{1-h} t^{-a} (1-t)^{a-1} \, dt \text{ exists. Let this limit be } g(a).$
+
+In addition, it is given that the function \(g(a)\) is differentiable on $(0, 1)$. 
+\hfill\textbf{JEE Adv.2014} 
+    \item The value of $g(\frac{1}{2})$ is
+    \begin{enumerate}
+        \item $\pi$
+        \item $2\pi$
+        \item $\frac{\pi}{2}$
+        \item $\frac{\pi}{4}$
+    \end{enumerate}
+    \item The value of $g'(\frac{1}{2})$ is
+    \begin{enumerate}
+        \item$\frac{\pi}{2}$
+        \item${\pi} $
+        \item $-\frac{\pi}{2}$
+        \item 0
+\end{enumerate}
+\end{enumerate}
+\end{document}
