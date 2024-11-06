@@ -1,0 +1,171 @@
+%iffalse
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\usepackage{pgfplots}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} 
+\usepackage{listings}
+\usepackage{gvv}                                        
+%\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                       
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}                                           
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{circuitikz}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+% Marks the beginning of the document
+\begin{document}
+\bibliographystyle{IEEEtran}
+\vspace{3cm}
+
+\title{2024- st-'27-39'}
+\author{AI24BTECH11013-Geetha charani}
+\maketitle
+\bigskip
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{enumerate}
+\item Let $X_1,X_2,.....,X_n$ be a random sample of size n$\brak{\geq 11}$ from a population with continuous and strictly increasing cumulative distribution function $F\brak{.}$ with an unknown median M. To test $H_0 : M = 10$ against $H_1 : M > 10$ at level $\alpha$, let the statistic T denote the number of observations larger than 10. Let $t_0$ be the observed value of the test statistic T. Consider the test which rejects $H_0$ if $T \geq c$. Then the p-value of the test is 
+\begin{enumerate}
+    \item $\sum_{i=t_0}^n \frac{n!}{i!\brak{n-i}!}\brak{0.5}^n$
+    \item $\sum_{i=10}^n \frac{n!}{i!\brak{n-i}!}\brak{0.5}^n$
+    \item $\sum_{i=0}^{10} \frac{n!}{i!\brak{n-i}!}\brak{0.5}^n$
+    \item $\sum_{i=0}^{t_0} \frac{n!}{i!\brak{n-i}!}\brak{0.5}^n$
+\end{enumerate}
+\item Consider the simple linear regression model 
+\begin{center}
+    $y_i = {\beta}_0 + {\beta}_1 x_i + {\epsilon}_i$, $i=1,2,....,n$, 
+\end{center}
+where ${\beta}_0$ and ${\beta}_1$ are unknown parameters, ${\epsilon}_i$'s
+ are uncorrelated random errors with mean 0 and finite variance ${\sigma}^2 > 0$ . Let $\Bar{y}= \frac{1}{n}\sum_{i=1}^n y_i$ and $\hat{\beta_1}$ be the least squares estimator of $\beta_1$. Then which of the following statements is true? 
+ \begin{enumerate}
+     \item The covariance between $\Bar{y}$ and $\hat{\beta_1}$ is less than 0
+     \item The covariance between $\Bar{y}$ and $\hat{\beta_1}$ is greater than 0
+     \item The covariance between $\Bar{y}$ and $\hat{\beta_1}$ is equal 0
+     \item The covariance between $\Bar{y}$ and $\hat{\beta_1}$ does not exist
+     \end{enumerate}
+\item Consider the simple linear regression model 
+\begin{center}
+    $y_i = {\beta}_0 + {\beta}_1 x_i + {\epsilon}_i$, $i=1,2,....,n$, 
+\end{center}
+where ${\beta}_0$ and ${\beta}_1$ are unknown parameters, ${\epsilon}_i$'s
+ are uncorrelated random errors with mean 0 and finite variance ${\sigma}^2 > 0$ . Let $\Bar{y}= \frac{1}{n}\sum_{i=1}^n y_i$ and $\hat{y_i}=\hat{\beta_0}+\hat{\beta_1}x_i$,$i=1,2,...,n$, where $\hat{\beta_0}$ and $\hat{\beta_1}$ represent least squares estimators of $\beta_0$ and $\beta_1$, respectivly. Let $T_1 = \frac{1}{n-2}\sum_{i=1}^n \brak{y_i -\hat{y_i}}^2$ and $T_2 = \sum_{i=1}^n\brak{\hat{y_i}-\Bar{y}}^2$. Then which one of the following statements is true?
+ \begin{enumerate}
+     \item Both $T_1$ and $T_2$ are unbiased estimators of $\sigma^2$
+     \item $T_1$ is an unbiased estimator of $\sigma^2$, but $T_2$ is not an unbiased estimator of $\sigma^2$
+     \item $T_1$ is not an unbiased estimator of $\sigma^2$, but $T_2$ is an unbiased estimator of $\sigma^2$
+     \item Neither $T_1$ and $T_2$ is an unbiased estimators of $\sigma^2$
+ \end{enumerate}
+ \item Consider the power series $\sum_{n=0}^\infty a_n x^n$, where $a_{2n+1}=\frac{1}{2^{2n+1}}$ and $a_2n = \frac{1}{3^{2n}}$ for $n=0,1,2,...$ . Then radius of convergence of the power series equals $\underline{\hspace{1.5 cm}}$$\brak{integer}$.
+ \item Let X be a random variable having Poisson distribution with mean $\lambda>0$    such that $P\brak{X=4}=2P\brak{X=5}$. If $p_k = P\brak{X=k}$, $k=0,1,2,...,$ and $p_\alpha = max p_k$, then $\alpha$ equals $\underline{\hspace{1.5 cm}}$$\brak{integer}$.
+ \item Let $X_1,X_2,X_3$ be independent and identically distributed random variables with common probability density function 
+  $f(x) = 
+    \begin{cases} 
+        2x & \text{if } 0 < x < 1 \\
+        0 & \text{otherwise}.
+    \end{cases}
+    $
+    
+    Then $ P\brak{ \min\{X_1, X_2, X_3\} \geq E\brak{X_1}} $ equals  $\underline{\hspace{1.5 cm}}$ (rounded off to two decimal places).
+\item Let $\brak{X, Y}$ have a bivariate normal distribution with $E\brak{X}=E\brak{Y}=0$. Denote the conditional variance of X given $Y=1$ by $Var\brak{X|Y=1}$ and the conditional variance of Y given $X=2$ by $Var\brak{Y|X=2}$.\\
+If $\frac{E\brak{Y|X=2}}{E\brak{X|Y=1}}=8$ then $\frac{Var\brak{Y|X=2}}{Var\brak{X|Y=1}}$ equals $\underline{\hspace{1.5 cm}}$$\brak{integer}$.
+\item Let X be a random sample of size one from a population having $N\brak{0,\sigma^2}$ distributing, where $\sigma>0$ is an unknown parameter. Let $\Phi\brak{.}$ denote the cumulative distribution function of a standard normal random variable and let  $\chi^2 _{\nu,\alpha}$ denote the $\brak{1-\alpha}$-th quantile of the central chi-square distribution with $\nu$ degrees of freedom. It is given that $\Phi\brak{1.96}=0.975$, $\Phi\brak{1.64}=0.95$,$\chi^2 _{1,0.05},\chi^2 _ {2,0.05}=5.991.$ To test $H_0:\sigma^2=1$ against $H_1:\sigma^2=2$, using the Neyman-Pearson most powerful test of size 0.05, the critical region is given by $\lambda\brak{X}>c$, where $c\geq0$ is a constant and $\lambda\brak{x}=\frac{f\brak{x;\sigma^2=2}}{f\brak{x;\sigma^2 =1}}$, where $f\brak{x;\sigma^2}$ is the probability density function of a N\brak{0,\sigma^2} distribution. Then the value of c equal to $\underline{\hspace{1.5 cm}}$
+\item Consider the simple linear regression model 
+\begin{center}
+    $y_i = {\beta}_0 + {\beta}_1 x_i + {\epsilon}_i$, $i=1,2,....,n$, 
+\end{center}
+where ${\beta}_1$ are unknown parameter, $\epsilon_i 's$ are uncorreleted random errors with mean 0 and finite variance $\sigma^2 > 0$. The five data points $\brak{x_1,y_1}=\brak{2,5}$, $\brak{x_2,y_2}=\brak{1,6}$, $\brak{x_3,y_3}=\brak{3,4}$, $\brak{x_4,y_4}=\brak{2,3}$, and $\brak{x_5,y_5}=\brak{4,6}$ yield the least squares estimate of $\beta_1$ equal to $\underline{\hspace{1.5 cm}}$.
+\item Consider the function $f:R^2 \rightarrow R$ defined by//
+\begin{center}
+$f\brak{x,y}=108xy-2x^2 y - 2xy^2$.
+\end{center}
+Which one of the following statements is NOT true?
+\begin{enumerate}
+    \item f has four critical points
+    \item f has a local minimum at $\brak{0, 0}$
+    \item f has a local maximum at $\brak{18,18}$
+    \item f has two or more saddle points
+\end{enumerate}
+Consider the function $f:R^2 \rightarrow R$ defined by 
+$f\brak{x,y} = 
+\begin{cases} 
+    \frac{x^3 - y^3}{x^2 + y^2} & \text{if } (x,y) \neq (0,0) \\
+    0 & \text{otherwise}
+\end{cases}$
+
+If $f_x$ denotes the partial derivative of f with respect to x and $f_y$ denotes the partial derivative of f with respect to y, then which one of the following statements is NOT true?
+\begin{enumerate}
+    \item f is continuous ai $\brak{0,0}$
+    \item $f_x \brak{0,0} \neq f_y \brak{0,0}$
+    \item $f_x$ is continuous at $\brak{0,0}$
+    \item $f_y$ is not continuous at $\brak{0,0}$
+\end{enumerate}
+\item Let X be a random variable with probability density function 
+$f(x) =
+\begin{cases}
+\frac{3}{8}(x+1)^2 & \text{if } -1 < x < 1 \\
+0 & \text{otherwise}
+\end{cases}$
+
+If $Y=1-X^2$, then P\brak{Y\geq\frac{3}{4}} equals
+\begin{enumerate}
+    \item $\frac{19}{32}$
+    \item $\frac{9}{16}$
+    \item $\frac{15}{32}$
+    \item $\frac{5}{8}$
+\end{enumerate}
+\item Let X be random variable with probability density function
+$f\brak{x} = 
+\begin{cases} 
+    \frac{c_1}{\sqrt{x}} & \text{if } 0 < x \leq 1 \\
+    \frac{c_2}{x^2} & \text{if } 1 < x < \infty \\
+    0 & \text{otherwise}
+\end{cases}
+$
+where $c_1$ and $c_2$ are appropriate real constants. If $P\brak{X\in\frac{1}{4},4]}=\frac{5}{8}$, then consider the following statements:\\
+$\brak{I}$ $P\brak{X \in [3,5]}=\frac{1}{12}$\\
+$\brak{II}$ Both X as well as $\frac{1}{X}$ do not have finite expectations. \\
+Which of the above statements is/are true?
+\begin{enumerate}
+    \item Only $\brak{I}$
+    \item Only $\brak{II}$
+    \item Both $\brak{I}$ and $\brak{II}$
+    \item Neither $\brak{I}$ nor $\brak{II}$
+\end{enumerate}
+\end{enumerate}
+\end{document}
