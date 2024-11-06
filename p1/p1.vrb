@@ -1,0 +1,2 @@
+\frametitle{Python Code}
+ \lstinputlisting[label=mycode]{codes/collinear.py}
