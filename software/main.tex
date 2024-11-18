@@ -1,0 +1,345 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm, onecolumn]{geometry}
+%\usepackage{lmodern} % Ensure lmodern is loaded for pdflatex
+\usepackage{tfrupee} % Include tfrupee package
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+\usepackage{gvv-book}
+\usepackage{gvv}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} 
+\usepackage{listings}
+% \usepackage{gvv}                                        
+\def\inputGnumericTable{}                                 
+\usepackage[latin1]{inputenc}                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                       
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}                                           
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{multicol}
+
+
+% Marks the beginning of the document
+\begin{document}
+\bibliographystyle{IEEEtran}
+\vspace{3cm}
+
+\title{Software Assisgnment}
+\author{AI24BTECH11013-G.Geetha charani}
+\maketitle
+\bigskip
+
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\section{\textbf{Power Iteration}}
+Eigenvalue computation is crucial in fields like linear algebra, control theory, and machine learning. The Power Iteration method is an efficient way to compute the dominant eigenvalue of a matrix, which is the eigenvalue with the largest absolute value. This method is especially useful for large matrices where only the dominant eigenvalue is needed.
+
+\subsection{Power Iteration Method}
+The Power Iteration method finds the dominant eigenvalue of a matrix $A$. Given an initial vector $b_0$, the algorithm works as follows:
+
+\begin{enumerate}
+    \item \textbf{Initialization}: Start with a random initial vector $b_0$.
+    \item \textbf{Iteration}: Compute $b_{k+1} = A b_k$, then normalize $b_{k+1}$ to avoid numerical instability: $b_{k+1} = \frac{A b_k}{\|A b_k\|}$.
+    \item \textbf{Convergence}: Repeat the iteration until the change in the eigenvalue estimate or vector is below a given threshold.
+    \item \textbf{Eigenvalue Estimate}: The dominant eigenvalue $ \lambda $ is approximated by
+    $
+    \lambda \approx \frac{b_{k+1}^T A b_k}{b_{k+1}^T b_{k+1}}.
+    $
+\end{enumerate}
+
+\subsection{Time Complexity}
+Each iteration involves multiplying the matrix $A$ by a vector, requiring $O(n^2)$ operations. Therefore, the overall time complexity of the method is $O(n^2)$ per iteration.
+
+\subsection{Convergence and Usage}
+The Power Iteration method converges quickly when the matrix has a large gap between the largest and second-largest eigenvalues. However, for matrices with closely spaced eigenvalues, convergence may be slow, and more sophisticated methods may be required.
+
+\subsection{Applications}
+The Power Iteration method is widely used in:
+\begin{itemize}
+    \item \textbf{Principal Component Analysis (PCA)}: Finding the dominant eigenvector of the covariance matrix.
+    \item \textbf{PageRank Algorithm}: Used in ranking web pages by analyzing link structures.
+    \item \textbf{Stability Analysis}: In systems theory and structural engineering, the dominant eigenvalue helps determine stability.
+\end{itemize}
+
+\subsection{Conclusion}
+Power Iteration is a simple yet effective method for computing the dominant eigenvalue of a matrix. While it is not suited for finding all eigenvalues, it is efficient for large matrices where only the largest eigenvalue is of interest.
+\section{\textbf{QR Algorithm}}
+Eigenvalue computation is fundamental in many areas of numerical analysis, physics, and engineering. The QR algorithm is a powerful method used to compute all eigenvalues of a matrix, making it suitable for a wide range of applications. This iterative algorithm is particularly known for its robustness and efficiency in handling both symmetric and non-symmetric matrices. Unlike the Power Iteration method, which focuses on the dominant eigenvalue, the QR algorithm provides a way to compute all eigenvalues of a matrix.
+
+\subsection{QR Algorithm Overview}
+The QR algorithm is an iterative procedure that decomposes a matrix into its eigenvalues and eigenvectors by applying QR decomposition repeatedly. The core idea of the algorithm is to factor a matrix $A$ into a product of two matrices $Q$ and $R$, where $Q$ is orthogonal (or unitary in the complex case) and $R$ is upper triangular. The algorithm then uses this decomposition to iteratively refine the matrix until it converges to an upper triangular form, from which the eigenvalues can be easily extracted.
+
+The steps of the QR algorithm are as follows:
+
+\begin{enumerate}
+    \item \textbf{QR Decomposition}: Start with a matrix $A_0 = A$. For each iteration $k$, compute the QR decomposition of $A_k$, where
+    $
+    A_k = Q_k R_k,
+    $
+    and $Q_k$ is an orthogonal matrix and $R_k$ is an upper triangular matrix.
+    
+    \item \textbf{Matrix Update}: Construct the next matrix $A_{k+1}$ as
+    $
+    A_{k+1} = R_k Q_k.
+    $
+    This step ensures that the matrix $A_k$ is updated for the next iteration.
+
+    \item \textbf{Convergence}: Repeat the QR decomposition and matrix update steps until the matrix $A_k$ converges to an upper triangular form, where the diagonal elements are the eigenvalues of the original matrix $A$.
+
+\end{enumerate}
+
+Once the matrix has converged to an upper triangular form, the eigenvalues are simply the diagonal entries of the matrix. This is because the eigenvalues of a triangular matrix are the values on its diagonal.
+
+\subsection{Convergence and Suitability}
+The QR algorithm converges rapidly for many types of matrices, particularly those that are symmetric or diagonalizable. In the case of a symmetric matrix, the QR algorithm converges to a diagonal matrix, and the diagonal elements represent the eigenvalues. For non-symmetric matrices, the algorithm still converges, though the process may involve complex eigenvalues.
+
+One important factor affecting the convergence rate is the size of the matrix. For large matrices, the QR algorithm may require several iterations to converge to an accurate solution. However, the algorithm is highly efficient and can be used to compute all eigenvalues of a matrix without needing to know the eigenvectors explicitly.
+
+The QR algorithm's convergence is typically fast for matrices with distinct eigenvalues. For matrices with multiple eigenvalues (i.e., defective matrices), the convergence may be slower, requiring more iterations. Modifications to the standard QR algorithm, such as the shift strategy, are often used to speed up convergence, especially for matrices with closely spaced eigenvalues.
+
+\subsection{Time Complexity}
+The time complexity of the QR algorithm is primarily determined by the cost of performing the QR decomposition at each iteration. For an $n \times n$ matrix, the QR decomposition requires $O(n^3)$ operations. In practice, the number of iterations required for convergence is typically on the order of $O(n)$, meaning that the total time complexity of the QR algorithm is approximately $O(n^4)$ in the worst case.
+
+For symmetric matrices, modifications of the QR algorithm can reduce the time complexity to $O(n^3)$. In practical applications, the QR algorithm is often the method of choice for computing all eigenvalues of a matrix, especially when high precision is required.
+
+\subsection{Applications of the QR Algorithm}
+The QR algorithm is widely used in various fields due to its ability to compute all eigenvalues of a matrix accurately. Some notable applications include:
+
+\begin{itemize}
+    \item \textbf{Structural Analysis}: In engineering, the QR algorithm is used to analyze the stability of structures and systems by computing the eigenvalues of system matrices.
+    \item \textbf{Quantum Mechanics}: The QR algorithm is used in quantum mechanics to solve for the energy levels (eigenvalues) of systems modeled by matrices.
+    \item \textbf{Control Theory}: The QR algorithm plays a role in stability analysis of dynamic systems by computing eigenvalues of system matrices.
+    \item \textbf{Principal Component Analysis (PCA)}: In PCA, the QR algorithm is used to compute eigenvalues and eigenvectors of the covariance matrix, aiding in dimensionality reduction.
+    \item \textbf{Signal Processing}: The QR algorithm is used to compute eigenvalues in signal processing for applications such as noise filtering and data compression.
+\end{itemize}
+
+\subsection{Modified QR Algorithm (Shifted QR Algorithm)}
+A common modification of the standard QR algorithm is the shifted QR algorithm. This modification speeds up convergence by introducing a shift parameter. In each iteration, the matrix is first shifted by subtracting a scalar multiple of the identity matrix, which accelerates the convergence, particularly for matrices with clustered eigenvalues. The shifted QR algorithm is often used in practice to improve the efficiency of eigenvalue computations, especially when dealing with large matrices.
+
+\subsection{Conclusion}
+The QR algorithm is a robust and efficient method for computing the eigenvalues of a matrix. Its ability to handle both symmetric and non-symmetric matrices makes it a versatile tool in numerical linear algebra. While its time complexity is relatively high, it is a powerful method for computing all eigenvalues, making it suitable for many applications in science, engineering, and machine learning.
+
+\section{\textbf{Jacobi}}
+The Jacobi algorithm is an iterative method used to find all eigenvalues and eigenvectors of a symmetric matrix. It is based on the idea of successively applying orthogonal transformations to reduce the matrix to a diagonal form, where the diagonal elements represent the eigenvalues. While the Jacobi method is primarily used for symmetric matrices, it is highly accurate and reliable.
+
+\subsection{Jacobi Algorithm Overview}
+The Jacobi algorithm works by iteratively rotating the matrix to make off-diagonal elements zero. The steps of the algorithm are as follows:
+
+\begin{enumerate}
+    \item \textbf{Initialization}: Start with a symmetric matrix $A_0 = A$ and an identity matrix $V_0$ (for eigenvectors).
+    
+    \item \textbf{Find the Pivot}: In each iteration, identify the largest off-diagonal element $A_{ij}$ in the matrix $A_k$ (the matrix at the $k$-th iteration).
+    
+    \item \textbf{Compute Rotation Matrix}: Construct a Jacobi rotation matrix $P$ that zeroes out the element $A_{ij}$. The matrix $P$ is an orthogonal matrix that is used to rotate the matrix $A_k$ into a new matrix $A_{k+1}$. The rotation is given by:
+    $
+    P = \begin{bmatrix} 
+    \cos\theta & \sin\theta \\
+    -\sin\theta & \cos\theta
+    \end{bmatrix},
+    $
+    where $\theta$ is the angle that diagonalizes the $2 \times 2$ block of $A$ corresponding to the pivot element $A_{ij}$.
+    
+    \item \textbf{Update the Matrix}: Update the matrix $A$ as:
+    $
+    A_{k+1} = P^T A_k P.
+    $
+    This operation zeros out the off-diagonal element $A_{ij}$ and moves the matrix closer to diagonal form.
+    
+    \item \textbf{Update Eigenvectors}: The matrix $V_k$ is updated by multiplying it with the rotation matrix $P$:
+    $
+    V_{k+1} = V_k P.
+    $
+    
+    \item \textbf{Convergence}: Repeat the process until the matrix $A$ converges to a diagonal form, meaning all off-diagonal elements are below a small threshold. The diagonal elements of $A$ are the eigenvalues of the original matrix, and the columns of $V$ are the corresponding eigenvectors.
+\end{enumerate}
+
+\subsection{Convergence and Applications}
+The Jacobi method converges to the eigenvalues of a symmetric matrix, and the number of iterations needed depends on the precision required and the condition of the matrix. For large matrices, the algorithm may be slower compared to other methods, such as the QR algorithm. However, it is guaranteed to converge for symmetric matrices.
+
+\subsection{Time Complexity}
+The time complexity of the Jacobi method is $O(n^3)$ per iteration due to the need to find the largest off-diagonal element, compute the rotation, and apply it to the matrix. Typically, the number of iterations needed is proportional to $n$, making the overall time complexity $O(n^4)$.
+
+\subsection{Conclusion}
+The Jacobi algorithm is an effective method for computing the eigenvalues and eigenvectors of symmetric matrices. While not the most efficient for large matrices, it provides accurate results and is particularly useful in contexts where a high degree of precision is required.
+\section{\textbf{Comparison and Choice of QR Algorithm}}
+Several algorithms exist for eigenvalue computation, each with its strengths and limitations. The Power Iteration method is efficient for finding the dominant eigenvalue of a matrix but cannot provide all eigenvalues. The Jacobi algorithm, while accurate and guaranteed to converge for symmetric matrices, has a relatively high computational cost of $O(n^4)$ and can be slow for large matrices. The QR algorithm, on the other hand, is versatile, providing all eigenvalues of a matrix and converging quickly for most matrices, especially when combined with modifications like shifts. Although it has a time complexity of \(O(n^3)\) per iteration, it typically converges in fewer iterations than the Jacobi method. For its robustness, efficiency, and ability to handle both symmetric and non-symmetric matrices, the QR algorithm is often preferred, making it the ideal choice for general eigenvalue problems.
+\section{\textbf{Gram-Schmith process}}
+The Gram-Schmidt process is an algorithm for orthogonalizing a set of vectors in an inner product space, commonly used in $\mathbb{R}^n$. It transforms a set of linearly independent vectors into an orthogonal set, which can be further normalized to produce an orthonormal set.
+
+\subsection{Steps of the Gram-Schmidt Process}
+Given a set of linearly independent vectors $ \{v_1, v_2, \dots, v_k\} $, the Gram-Schmidt process generates an orthogonal set $ \{u_1, u_2, \dots, u_k\} $ through the following steps:
+
+\begin{enumerate}
+    \item \textbf{Start with the first vector}:
+    $
+    u_1 = v_1
+    $
+    
+    \item \textbf{Iterate for subsequent vectors}:
+    For each $ v_k $, subtract the projections onto the previously computed vectors $ u_1, u_2, \dots, u_{k-1} $:
+    $
+    u_k = v_k - \text{proj}_{u_1}(v_k) - \text{proj}_{u_2}(v_k) - \dots - \text{proj}_{u_{k-1}}(v_k)
+    $
+    where the projection of \( v_k \) onto \( u_i \) is given by:
+    $
+    \text{proj}_{u_i}(v_k) = \frac{v_k \cdot u_i}{u_i \cdot u_i} u_i
+    $
+    
+    \item \textbf{Normalize the vectors}:
+    For orthonormal vectors, normalize each $ u_i $:
+    $
+    q_i = \frac{u_i}{\|u_i\|}
+    $
+    \item \textbf{Form the matrix $ Q $:} Once all the vectors $ q_1, q_2, \dots, q_n $ are computed, the matrix $ Q $ is formed by placing these vectors as columns.
+    
+    \item \textbf{Compute matrix $ R $:} The matrix $ R $ is obtained by:
+    $
+    R = Q^T A
+    $
+    $ R $ will be an upper triangular matrix.
+
+\subsection{Result:}
+After applying the Gram-Schmidt process, we have the QR decomposition of matrix $ A $:
+$
+A = QR
+$
+where $ Q $ is orthogonal and $ R $ is upper triangular.
+\item \textbf{C code on computing eigenvalues using QR algorithm}
+\begin{lstlisting}
+#include <stdio.h>
+#include <math.h>
+
+#define MAX_ITER 1000
+#define TOL 1e-6
+#define MAX_SIZE 100
+
+void printMatrix(double mat[MAX_SIZE][MAX_SIZE], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%8.4f ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void matrixMultiply(double A[MAX_SIZE][MAX_SIZE], double B[MAX_SIZE][MAX_SIZE], double C[MAX_SIZE][MAX_SIZE], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            C[i][j] = 0;
+            for (int k = 0; k < n; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}
+
+void transpose(double A[MAX_SIZE][MAX_SIZE], double AT[MAX_SIZE][MAX_SIZE], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            AT[j][i] = A[i][j];
+        }
+    }
+}
+
+void gramSchmidt(double A[MAX_SIZE][MAX_SIZE], double Q[MAX_SIZE][MAX_SIZE], double R[MAX_SIZE][MAX_SIZE], int n) {
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < n; i++) {
+            R[k][i] = 0;
+            for (int j = 0; j < n; j++) {
+                R[k][i] += Q[j][k] * A[j][i];
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            Q[i][k] = A[i][k];
+            for (int j = 0; j < k; j++) {
+                Q[i][k] -= R[j][k] * Q[i][j];
+            }
+        }
+        double norm = 0;
+        for (int i = 0; i < n; i++) {
+            norm += Q[i][k] * Q[i][k];
+        }
+        norm = sqrt(norm);
+        for (int i = 0; i < n; i++) {
+            Q[i][k] /= norm;
+        }
+    }
+}
+
+void QRAlgorithm(double A[MAX_SIZE][MAX_SIZE], int n, double eigenvalues[MAX_SIZE]) {
+    double Q[MAX_SIZE][MAX_SIZE] = {0};
+    double R[MAX_SIZE][MAX_SIZE] = {0};
+    double A_next[MAX_SIZE][MAX_SIZE] = {0};
+
+    for (int iter = 0; iter < MAX_ITER; iter++) {
+        gramSchmidt(A, Q, R, n);
+        matrixMultiply(R, Q, A_next, n);
+
+        double diff = 0;
+        for (int i = 0; i < n; i++) {
+            diff += fabs(A_next[i][i] - A[i][i]);
+        }
+        if (diff < TOL) break;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = A_next[i][j];
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        eigenvalues[i] = A[i][i];
+    }
+}
+
+int main() {
+    int n;
+    double A[MAX_SIZE][MAX_SIZE];
+    double eigenvalues[MAX_SIZE];
+
+    printf("Enter the size of the matrix (n x n, max size 100): ");
+    scanf("%d", &n);
+
+    printf("Enter the elements of the matrix row by row:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%lf", &A[i][j]);
+        }
+    }
+
+    QRAlgorithm(A, n, eigenvalues);
+
+    printf("Eigenvalues:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%8.4f\n", eigenvalues[i]);
+    }
+
+    return 0;
+}
+\end{lstlisting}
+\end{enumerate}
+\end{document}
